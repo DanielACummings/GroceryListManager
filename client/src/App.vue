@@ -1,5 +1,26 @@
 <script setup>
+import axios from 'axios';
 import HelloWorld from './components/HelloWorld.vue'
+import LoginRegister from './components/LoginRegister.vue';
+
+axios.defaults.baseURL = 'http://127.0.0.1:8000/api';
+
+// Define a method to retrieve CSRF token
+async function fetchCsrfToken() {
+    try {
+        const response = await axios.get('csrf-token');
+        const csrfToken = response.data.csrf_token;
+
+        // Set the CSRF token as a default header in Axios
+        axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
+        console.log('CSRF token fetched:', csrfToken);
+    } catch (error) {
+        console.error('Error fetching CSRF token:', error);
+    }
+}
+
+// Call fetchCsrfToken during app initialization
+fetchCsrfToken();
 </script>
 
 <template>
@@ -12,6 +33,7 @@ import HelloWorld from './components/HelloWorld.vue'
     </a>
   </div>
   <HelloWorld />
+  <LoginRegister />
 </template>
 
 <style scoped>
