@@ -1,5 +1,21 @@
-# Vue 3 + Vite
-
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+# Debugging
+- Run in terminal before running Launch Debug in VS Code
+    - `microsoft-edge --remote-debugging-port=9222 --user-data-dir=remote-debug-profile`
+- Sample launch.json file configured for debugging with VS Code, Edge Browser, the "Microsoft Edge Tools for VS Code" extension, & Linux Mint
+    ```
+    {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "type": "msedge",
+                "request": "launch",
+                "name": "Launch Debug",
+                "url": "http://localhost:5173",
+                "webRoot": "${workspaceFolder}",
+                "port": 9222,
+                "userDataDir": "remote-debug-profile",
+                "runtimeExecutable": "/opt/microsoft/msedge/microsoft-edge"
+            }
+        ]
+    }
+    ```
