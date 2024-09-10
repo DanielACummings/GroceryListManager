@@ -1,4 +1,5 @@
 /.phpunit.cache
+/database/migrations
 /public/build
 /public/hot
 /public/storage

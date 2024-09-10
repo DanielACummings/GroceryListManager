@@ -127,10 +127,6 @@
         }
       },
       handleSubmit() {
-        const headers = {
-          'X-CSRF-TOKEN': axios.defaults.headers.common['X-CSRF-TOKEN']
-        };
-        console.log('Request headers:', headers);
         const apiEndpoint = `${axios.defaults.baseURL}/${this.isLogin
           ? 'login' : 'register'}`;
         const payload = {
