@@ -4,6 +4,9 @@ import HelloWorld from './components/HelloWorld.vue'
 import LoginRegister from './components/LoginRegister.vue';
 
 axios.defaults.baseURL = 'http://127.0.0.1:8000/api';
+// TODO: Might use instead of adding CSRF token to all requests 
+// axios.defaults.headers.common['X-CSRF-TOKEN'] = document.cookie.match(/XSRF-TOKEN=([^;]*)/);
+
 </script>
 
 <template>

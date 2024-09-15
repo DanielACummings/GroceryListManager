@@ -16,7 +16,7 @@
 
 ## Dependencies
 - PHP
-    - `sudo apt install php php-mysql php-xml`
+    - `sudo apt-get install php php-mysql php-xml php-mbstring`
 - Composer
     - TODO
 - Laravel

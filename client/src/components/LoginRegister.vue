@@ -104,6 +104,9 @@
       },
     },
     methods: {
+      getCsrfCookie() {
+        return axios.get('/sanctum/csrf-cookie').then(response => { });
+      },
       toggleForm() {
         this.isLogin = !this.isLogin;
         // Retain the email and passphrase on switching forms
@@ -127,18 +130,18 @@
         }
       },
       handleSubmit() {
-        const apiEndpoint = `${axios.defaults.baseURL}/${this.isLogin
-          ? 'login' : 'register'}`;
-        const payload = {
-          email: this.email,
-          password: this.passphrase,
-        };
-  
-        // Add passphrase confirmation for registration
-        if (!this.isLogin) {
-          payload.passphraseConfirm = this.passphraseConfirm;
-        }
-  
+          const apiEndpoint = `${axios.defaults.baseURL}/${this.isLogin
+            ? 'login' : 'register'}`;
+          const payload = {
+            email: this.email,
+            password: this.passphrase,
+          };
+
+          // Add passphrase confirmation for registration
+          if (!this.isLogin) {
+            payload.passphraseConfirm = this.passphraseConfirm;
+          }
+
         axios.post(apiEndpoint, payload)
           .then(response => {
             // Handle success or error as needed
@@ -146,7 +149,7 @@
           })
           .catch(error => {
             console.error('Error:', error);
-          });
+        });
       },
     },
   };
