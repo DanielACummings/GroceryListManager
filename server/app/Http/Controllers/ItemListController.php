@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\List as ListModel; // Assuming you have a List model
+use App\Models\ItemList as ListModel; // Assuming you have a List model
 use Illuminate\Http\Request;
 
-class ListController extends Controller
+class ItemListController extends Controller
 {
     public function index()
     {
