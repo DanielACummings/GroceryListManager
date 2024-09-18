@@ -1,5 +1,6 @@
 <script setup>
 import axios from 'axios';
+import Lists from './components/Lists.vue';
 import HelloWorld from './components/HelloWorld.vue'
 import LoginRegister from './components/LoginRegister.vue';
 
@@ -19,7 +20,8 @@ axios.defaults.baseURL = 'http://127.0.0.1:8000/api';
     </a>
   </div>
   <HelloWorld />
-  <LoginRegister />
+  <!-- <LoginRegister /> -->
+  <CreateList />
 </template>
 
 <style scoped>
