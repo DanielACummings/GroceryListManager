@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -31,9 +33,7 @@ export default {
   },
   methods: {
     loadLists() {
-      // API call to load lists from database
-      // For example:
-      axios.get('/api/lists')
+      axios.get('lists')
         .then(response => {
           this.lists = response.data
         })
@@ -50,9 +50,7 @@ export default {
         alert('List name already in use')
         return
       }
-      // API call to create new list in database
-      // For example:
-      axios.post('/api/lists', { name: this.newListName })
+      axios.post('lists', { name: this.newListName })
         .then(response => {
           this.lists.push(response.data)
           this.newListName = ''

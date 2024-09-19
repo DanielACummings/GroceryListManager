@@ -6,9 +6,11 @@ use Illuminate\Support\Facades\Route;
 
 $baseRoute = 'api';
 
+// Test route to show UI to API connection status
 Route::get("{$baseRoute}/", function () {
     return response()->json(['message' => 'UI is connected to API']);
 });
+
 Route::get("{$baseRoute}/lists", [ItemListController::class, 'index']);
 Route::post("{$baseRoute}/lists", [ItemListController::class, 'store']);
 Route::get("{$baseRoute}/sanctum/csrf-cookie", function () {
