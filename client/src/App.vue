@@ -12,11 +12,8 @@
 </template>
 
 <script setup>
-import axios from 'axios';
 import Lists from './components/Lists.vue';
 import HelloWorld from './components/HelloWorld.vue';
-
-axios.defaults.baseURL = 'http://127.0.0.1:8000/api';
 </script>
 
 <style scoped>

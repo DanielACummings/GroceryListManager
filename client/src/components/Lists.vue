@@ -19,7 +19,9 @@
   </template>
   
   <script>
-  import axios from 'axios';
+  import createAuthAxios from '../authAxios.js';
+
+  const authAxios = await createAuthAxios();
 
   export default {
     data() {
@@ -33,7 +35,7 @@
     },
     methods: {
       loadLists() {
-        axios.get('/lists')
+        authAxios.get('/lists')
           .then(response => {
             this.lists = response.data
           })
@@ -50,7 +52,7 @@
           alert('List name already in use')
           return
         }
-        axios.post('/lists', { name: this.newListName })
+        authAxios.post('/lists', { name: this.newListName })
           .then(response => {
             this.lists.push(response.data)
             this.newListName = ''
